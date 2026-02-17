@@ -84,6 +84,51 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// Scroll Animation
+document.addEventListener('DOMContentLoaded', function () {
+    // Add animation classes on page load
+    const sidebar = document.querySelector('.sidebar');
+    const mainContent = document.querySelector('.main-content');
+    const projectCards = document.querySelectorAll('.project-card');
+    const valueCards = document.querySelectorAll('.value-card');
+    const sections = document.querySelectorAll('section');
+
+    // Initial animations
+    if (sidebar) sidebar.classList.add('slide-in-left');
+    if (mainContent) mainContent.classList.add('slide-in-right');
+
+    // Intersection Observer for scroll-triggered animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+
+                if (element.classList.contains('project-card')) {
+                    element.style.animation = 'slideInUp 0.6s ease-out forwards';
+                } else if (element.classList.contains('value-card')) {
+                    element.style.animation = 'scaleIn 0.6s ease-out forwards';
+                } else if (element.tagName === 'SECTION') {
+                    element.style.animation = 'fadeIn 0.6s ease-out forwards';
+                }
+
+                observer.unobserve(element);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all animatable elements
+    projectCards.forEach(card => observer.observe(card));
+    valueCards.forEach(card => observer.observe(card));
+    sections.forEach(section => {
+        if (section.id) observer.observe(section);
+    });
+});
+
 // Mobile Menu
 document.addEventListener('DOMContentLoaded', function () {
     const menuBtn = document.querySelector('.menu-btn');

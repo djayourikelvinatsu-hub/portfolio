@@ -39,6 +39,136 @@
             box-sizing: border-box;
         }
 
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.1);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            75% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                box-shadow: var(--shadow);
+            }
+
+            50% {
+                box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+            }
+        }
+
+        /* Animation utility classes */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .slide-in-up {
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.6s ease-out forwards;
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.6s ease-out forwards;
+        }
+
+        .scale-in {
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background: var(--bg-primary);
@@ -66,6 +196,7 @@
             position: sticky;
             top: 2rem;
             text-align: center;
+            animation: slideInLeft 0.8s ease-out;
         }
 
         /* PROFILE IMAGE REMOVED */
@@ -106,6 +237,12 @@
             border-radius: 16px;
             padding: 1rem;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.15);
         }
 
         .metric-number {
@@ -152,6 +289,12 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.2);
         }
 
         .skill-tag i {
@@ -202,6 +345,7 @@
             border-radius: 24px;
             padding: 2.5rem;
             box-shadow: var(--shadow);
+            animation: slideInRight 0.8s ease-out;
         }
 
         .section-title {
@@ -242,6 +386,12 @@
             background: var(--bg-secondary);
             border-radius: 20px;
             padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.2);
         }
 
         .value-card h3 {
@@ -332,6 +482,12 @@
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.25);
         }
 
         html[data-theme="dark"] .tech-tag {
@@ -364,6 +520,20 @@
         }
 
         .project-card h3 {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
@@ -603,7 +773,7 @@
             padding: 0.5rem 1rem;
             border-radius: 20px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -614,6 +784,25 @@
             background: var(--bg-secondary);
             border-color: var(--primary-color);
             color: var(--primary-color);
+            transform: rotate(20deg);
+        }
+
+        .theme-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:active i {
+            animation: spin 0.6s ease-in-out;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Navigation Bar */
@@ -643,7 +832,6 @@
             padding: 0.75rem 1.5rem;
             border-radius: 20px;
             transition: all 0.3s;
-            border: 2px solid transparent;
         }
 
         .nav-links a:hover {
