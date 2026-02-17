@@ -25,7 +25,7 @@ Personal portfolio website showcasing my projects and skills as a Frontend Devel
 ## 📧 Contact
 - Email: kelvinatsu213@gmail.com
 - LinkedIn: [www.linkedin.com/in/kelvin-atsu-djayouri-b129a739a]
-- GitHub: [kelvinatsu]
+- GitHub: [djayourikelvinatsu-hub]
 
 ## 📄 License
 MIT © Kelvin Atsu Djayouri
