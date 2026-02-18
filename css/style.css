@@ -1,8 +1,8 @@
 /* style.css - Complete stylesheet for the portfolio */
 
 :root {
-    --bg-color: #ffffff;
-    --text-color: #1e293b;
+    --bg-color: #f6f6f6;
+    --text-color: hsl(216, 19%, 95%);
     --card-bg: #ffffff;
     --nav-bg: #ffffff;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -403,7 +403,7 @@ footer {
 
 /* Page Header */
 .page-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #3854cf 0%, #764ba2 100%);
     color: white;
     text-align: center;
     padding: 8rem 0 4rem;
