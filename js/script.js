@@ -55,9 +55,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const ampm = hours >= 12 ? 'PM' : 'AM';
             const displayHours = hours % 12 || 12;
             timeElement.textContent = `${displayHours}:${minutes}:${seconds} ${ampm}`;
+            timeElement.style.display = 'inline'; // Ensure it's visible
         }
     }
 
+    // Initialize clock immediately and set interval
     updateClock();
     setInterval(updateClock, 1000);
 });
