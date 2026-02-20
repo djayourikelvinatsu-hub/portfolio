@@ -94,7 +94,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                             <h4 className="font-bold text-sm uppercase tracking-widest text-muted-foreground mb-4">Tech Infrastructure</h4>
                             <div className="flex flex-wrap gap-3">
                                 {(project.techStack as string[])?.map((tech) => (
-                                    <span key={tech} className="bg-background border border-border text-foreground px-4 py-2 rounded-lg text-sm font-semibold shadow-sm">{tech}</span>
+                                    <span key={tech} className="bg-background border border-border text-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-sm">{tech}</span>
                                 ))}
                             </div>
                         </div>
