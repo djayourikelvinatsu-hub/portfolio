@@ -1,0 +1,43 @@
+---
+title: "Modern CSS: Grid vs Flexbox"
+date: "2026-02-15"
+description: "When to use CSS Grid and when to use Flexbox in modern web development. A practical guide to layout choice."
+tags: ["CSS", "Design", "Frontend"]
+---
+
+# The Great Layout Debate
+
+For years, developers asked: "Should I use Grid or Flexbox?" The answer today is simple: **Use both.** 
+
+While they share some similarities, they are designed for fundamentally different paradigms of layout.
+
+## Flexbox: 1D Layouts
+
+Flexbox is designed for **one-dimensional** layouts—either a row or a column. It excels at distributing space within a container and perfectly aligning items.
+
+Use Flexbox when:
+- You need to align a row of navigation links.
+- You want to center an icon inside a button.
+- You have a list of tags that should wrap naturally.
+
+## CSS Grid: 2D Layouts
+
+CSS Grid is designed for **two-dimensional** layouts—handling both rows and columns simultaneously.
+
+Use Grid when:
+- Building an entire page structure (Header, Sidebar, Main, Footer).
+- Creating a gallery of images or a grid of product cards.
+- You need strict control over overlapping elements.
+
+```css
+.gallery {
+  display: grid;
+  /* Auto-fit magic that replaces media queries */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+```
+
+## The Synergy
+
+The most powerful layouts happen when you combine them. A perfect example is a dashboard: CSS Grid handles the macro-layout (the sidebar and main content area), while Flexbox handles the micro-layouts (the notification bell and user profile inside the header).

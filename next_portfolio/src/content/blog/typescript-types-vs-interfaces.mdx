@@ -1,0 +1,40 @@
+---
+title: "TypeScript: Types vs Interfaces"
+date: "2026-02-12"
+description: "A practical comparison of Types and Interfaces in TypeScript and when you should use each in your projects."
+tags: ["TypeScript", "JavaScript", "Engineering"]
+---
+
+# The TypeScript Dilemma
+
+If you've written TypeScript, you've probably faced the choice: `type` or `interface`? 
+
+```typescript
+type User = {
+  name: string;
+  age: number;
+}
+
+interface User {
+  name: string;
+  age: number;
+}
+```
+
+Historically, the differences were significant, but in modern TypeScript, they are nearly identical in capabilities. However, there are still a few key distinctions.
+
+## When to Use Interfaces
+
+Interfaces are incredibly powerful when you know your object shape might need to be augmented later.
+- **Declaration Merging:** You can define an interface multiple times, and TypeScript will merge the declarations. This is heavily used by library authors (like extending the global `Window` object).
+- **Object-Oriented Design:** If you are writing classes that need to follow a contract, `implements InterfaceName` is the standard pattern.
+
+## When to Use Types
+
+Types are more versatile. While interfaces can only describe object shapes, types can describe almost anything.
+- **Unions and Intersections:** If you need a value to be one of many shapes (`type Status = 'success' | 'error'`), you *must* use `type`.
+- **Utility Types:** When extracting or mapping types (like `Pick`, `Omit`, or `ReturnType`), types are required.
+
+## The Verdict
+
+For most React and Next.js applications, the choice is purely stylistic. Pick one standard for your codebase and stick to it. As a general rule of thumb: Use `interface` for public APIs and object shapes, and use `type` for complex type definitions, unions, and tuples.
