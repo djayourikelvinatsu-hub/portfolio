@@ -1,9 +1,17 @@
-import { getMDXBySlug } from "@/lib/utils";
+import { getMDXBySlug, getAllMDX } from "@/lib/utils";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Box, Calendar, User, Terminal, ExternalLink, Github } from "lucide-react";
 import { Mermaid } from "@/components/Mermaid";
+
+// Add generateStaticParams logic for static export
+export async function generateStaticParams() {
+    const projects = await getAllMDX("projects");
+    return projects.map((project) => ({
+        slug: project.slug,
+    }));
+}
 
 const components = {
     h1: (props: any) => <h1 className="text-4xl font-extrabold mt-16 mb-8 tracking-tight lg:text-5xl text-foreground" {...props} />,

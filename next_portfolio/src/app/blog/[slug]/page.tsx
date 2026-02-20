@@ -1,8 +1,16 @@
-import { getMDXBySlug } from "@/lib/utils";
+import { getMDXBySlug, getAllMDX } from "@/lib/utils";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+
+// Add generateStaticParams logic for static export
+export async function generateStaticParams() {
+    const posts = await getAllMDX("blog");
+    return posts.map((post) => ({
+        slug: post.slug,
+    }));
+}
 
 interface BlogPostPageProps {
     params: Promise<{
