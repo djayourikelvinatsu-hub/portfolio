@@ -1,0 +1,33 @@
+---
+title: "TECSTORE: Premium E-commerce Platform"
+status: "Completed"
+description: "A fully functional, premium e-commerce platform built with Next.js, Redux Toolkit, Django REST Framework, and Stripe integration."
+role: "Full-Stack Developer"
+duration: "Personal Project"
+techStack: ["Next.js", "React", "Redux Toolkit", "Tailwind CSS", "Django", "Django REST", "PostgreSQL", "Stripe"]
+liveUrl: "https://github.com/djayourikelvinatsu-hub/e-commerce"
+repoUrl: "https://github.com/djayourikelvinatsu-hub/e-commerce"
+---
+
+# Problem Statement & Solution
+I wanted to build a high-performance, aesthetically premium e-commerce application from scratch to demonstrate my full-stack capabilities. The solution involved decoupling the frontend and backend architectures. The backend is powered by Python and Django REST Framework, providing secure APIs for authentication, products, cart management, and order processing. The frontend is built with Next.js and Redux Toolkit to provide a seamless, highly reactive user experience.
+
+# Technical Architecture
+
+<Mermaid chart={`
+graph TD
+    Client([User Browser]) --> Frontend[Next.js Client Components]
+    Frontend <-->|RTK Query| ReduxStore[(Redux Store)]
+    Frontend <-->|REST API| Backend[Django REST Framework API]
+    Backend <--> DB[(PostgreSQL Database)]
+    Backend <--> Stripe[Stripe Payment Gateway]
+`} />
+
+# Key Features
+- **Premium Design System**: Implemented a modern, responsive UI with Tailwind CSS and CSS variables for a cohesive theme.
+- **Advanced State Management**: Utilized Redux Toolkit and RTK Query for efficient data fetching, caching, and global state management across authentication, cart, and product listings.
+- **Robust Backend API**: Developed a secure RESTful API using Django REST Framework, incorporating Djoser for JWT authentication and custom viewsets for dynamic filtering and searching.
+- **Payment Integration**: Successfully integrated the Stripe API for secure, PCI-compliant checkout flows.
+
+# Performance & UX Impact
+By utilizing Next.js, the application benefits from optimized rendering and image handling. RTK Query significantly reduces loading states by caching API responses locally, creating a snappy and instant feel during product browsing and cart manipulation.
